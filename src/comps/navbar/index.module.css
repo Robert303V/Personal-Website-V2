@@ -1,0 +1,38 @@
+.navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  height: 75px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  background-color: black;
+  color: white;
+  padding: 0px 0px;
+}
+
+.navList {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  right: 30px;
+  list-style: none;
+}
+
+.navbar a {
+  font-family: 'Merienda';
+  color: white;
+  font-weight: bold;
+  margin: 0px 12px;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.navbarImg {
+  height: 70px;
+}

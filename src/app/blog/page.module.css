@@ -1,0 +1,65 @@
+.blog {
+  font-family: "Merienda";
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../../../public/backs/RedRock.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+
+.blogInnerContainer {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  margin: 0px auto 40px auto;
+  max-width: 70%;
+  transform: translateY(20px);
+  align-self: center;
+}
+
+.blogPosts {
+  max-width: 80%;
+  transform: translateX(12.5%);
+}
+
+.blogPost {
+  margin: 0 0 10px 0;
+}
+
+.blogPost:hover {
+  background-color: rgba(200, 200, 200, 0.8);
+}
+
+.blogPostNoClick {
+  margin: 10px 0 10px 0;
+}
+
+.blogPostTitleDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.blogPostTitle {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+.blogPostDate {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+.blogPostMessage {
+  margin-top: 5;
+  text-decoration: none;
+}
+
+.blogPostTilda {
+  margin: 0;
+}

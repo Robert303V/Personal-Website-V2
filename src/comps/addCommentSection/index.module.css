@@ -1,0 +1,11 @@
+.postingSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.twoButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}

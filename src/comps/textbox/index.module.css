@@ -1,0 +1,23 @@
+.textbox1 {
+  align-self: center;
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+
+  width: 25%;
+  min-width: 25%;
+  max-width: 25%;
+  transform: translateY(-10px);
+}
+
+.textbox2 {
+  align-self: center;
+  height: 92px;
+  min-height: 92px;
+  max-height: 480px;
+
+  width: 50%;
+  min-width: 50%;
+  max-width: 50%;
+  transform: translateY(-10px);
+}
