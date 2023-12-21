@@ -17,30 +17,6 @@ import EndFiller from "../comps/endFiller";
 export default function Home() {
   const router = useRouter();
 
-  const updateLayout = () => {
-    const screenWidth = window.innerWidth;
-    const sideBySideContainer = document.getElementById("containerToFlip");
-
-    if (sideBySideContainer) {
-      if (screenWidth < 1000) {
-        sideBySideContainer.style.flexDirection = "column-reverse";
-      } else {
-        sideBySideContainer.style.flexDirection = "row";
-      }
-    }
-  };
-
-  updateLayout();
-
-  useEffect(() => {
-    updateLayout();
-    window.addEventListener("resize", updateLayout);
-
-    return () => {
-      window.removeEventListener("resize", updateLayout);
-    };
-  }, []);
-
   return (
     <>
       <div className={styles.about}>
