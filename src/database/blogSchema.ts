@@ -13,10 +13,10 @@ const subSchema = new Schema<CommentType>({
 const blogSchema = new Schema<BlogType>({
   title: { type: String, required: true },
   date: { type: Date, required: false, default: new Date() },
-  description: { type: String, required: true },
   slug: { type: String, required: true },
   image: { type: String, required: true },
   comments: { type: [subSchema] },
+  content: { type: [String] },
   blogNum: { type: Number, required: true },
 });
 

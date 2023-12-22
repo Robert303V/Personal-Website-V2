@@ -1,32 +1,23 @@
 import Link from "next/link";
-import Image from "next/image";
-
-import farq from "../../../../public/blog/farquaad.png";
-import huh from "../../../../public/blog/huh.png";
-import barry from "../../../../public/blog/barry.png";
 
 import EndFiller from "../../../comps/endFiller";
-import BlogComment from "../../../comps/blogComment";
 import AddCommentSection from "../../../comps/addCommentSection";
+import CommentsSection from "../../../comps/commentsSection";
+import BlogPreview from "../../../comps/blogPreview";
 
 import getBlog from "../../../helpers/getBlog";
-import CommentType from "../../../types/commentType";
 
 import styles from "../page.module.css";
 
 async function BlogPost({ params }: { params: { slug: string } }) {
   let blogPost = await getBlog(params.slug);
 
-  const updateBlogPost = async () => {
-    //blogPost = await getBlogAPI(params.slug);
-  };
-
   if (!blogPost) {
     return (
       <div className={styles.blog}>
         <div className={styles.blogInnerContainer}>
           <h4>
-            <Link href="/blog">Click To Go Back To Blog</Link>
+            <Link href="/blog">Click To Go Back To My Blog</Link>
           </h4>
           <p className="blogPostMessage">This Blog Post Does Not Exist</p>
         </div>
@@ -35,13 +26,6 @@ async function BlogPost({ params }: { params: { slug: string } }) {
     );
   }
 
-  let image = farq;
-  if (blogPost.image == "huh") {
-    image = huh;
-  }
-  if (blogPost.image == "barry") {
-    image = barry;
-  }
   let dateString = new Date(blogPost.date).toLocaleDateString("en-US", {
     weekday: "long",
     year: "numeric",
@@ -53,38 +37,34 @@ async function BlogPost({ params }: { params: { slug: string } }) {
     <div className={styles.blog}>
       <div className={styles.blogInnerContainer}>
         <h4>
-          <Link href="/blog">Click To Go Back To Blog</Link>
+          <Link href="/blog">Click To Go Back To My Blog</Link>
         </h4>
-        <div className={styles.blogPosts} id="blog-posts">
-          <div className={styles.blogPostNoClick}>
-            <div className={styles.blogPostTitleDate}>
-              <h2 className="blogPostTitle">{blogPost.title}</h2>
-              <p className="blogPostDate">{dateString}</p>
-            </div>
-            <p className="blogPostMessage">{blogPost.description}</p>
-            <Image
-              className={styles.aboutImage}
-              src={image}
-              alt="My Headshot"
-              width={300}
-              height={300}
+        <div
+          className={styles.blogPostsOuter}
+          style={{ borderBottom: "1px solid black" }}
+        >
+          <div className={styles.blogPosts} id="blog-posts">
+            <BlogPreview
+              title={blogPost.title}
+              date={dateString}
+              image={blogPost.image}
+              flip={blogPost.blogNum % 2 == 0 ? true : false}
+              end={true}
             />
-
-            <AddCommentSection params={{ slug: params.slug }} />
-
-            {blogPost.comments
-              ? blogPost.comments.map((blogCommentObj: CommentType) => (
-                  <BlogComment
-                    user={blogCommentObj.user}
-                    comment={blogCommentObj.comment}
-                    date={new Date(blogCommentObj.date)}
-                    key={blogCommentObj.user + String(blogCommentObj.date)}
-                  />
-                ))
-              : null}
-              
+            {blogPost.content.map((contentStr: string) => (
+              <div className={styles.blogPostMessageOuter} key={contentStr}>
+                <p className={styles.blogPostMessage}>{contentStr}</p>
+              </div>
+            ))}
           </div>
         </div>
+        <h2 className={styles.commentSectionHeader}>Comments Section</h2>
+        <AddCommentSection params={{ slug: params.slug, type: "blog" }} />
+        {blogPost.comments ? (
+          <>
+            <CommentsSection comments={blogPost.comments} />
+          </>
+        ) : null}
       </div>
       <EndFiller />
     </div>
@@ -95,22 +75,21 @@ export default BlogPost;
 
 /*
 
-const BlogPost = () => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const blogPost = blogData.find((post) => post.slug === slug);
+           <div className={styles.blogPostNoClick}>
+              <div className={styles.blogPostTitleDate}>
+                <h2 className="blogPostTitle">{blogPost.title}</h2>
+                <p className="blogPostDate">{dateString}</p>
+              </div>
+              <p className="blogPostMessage">{blogPost.description}</p>
+              <Image
+                className={styles.aboutImage}
+                src={image}
+                alt="My Headshot"
+                width={300}
+                height={300}
+              />
+            </div>
 
-  if (!blogPost) {
-    return <p>Blog post not found.</p>;
-  }
 
-  return (
-    <div>
-      <h1>{blogPost.title}</h1>
-      <p>{blogPost.date}</p>
-      <p>{blogPost.message}</p>
-    </div>
-  );
-};
 
 */

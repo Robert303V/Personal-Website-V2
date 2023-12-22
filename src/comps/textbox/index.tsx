@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, ChangeEvent } from "react";
+import React, { useRef, ChangeEvent } from "react";
 import styles from "./index.module.css";
 
 interface AutoSizeTextboxProps {

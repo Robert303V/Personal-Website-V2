@@ -1,72 +1,67 @@
 .projectDetails {
-  max-width: 50%;
-}
-
-.projectDetails2 {
-  max-width: 40%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 @media screen and (max-width: 1000px) {
   .projectDetails {
-    max-width: 70%;
-  }
-
-  .projectDetails2 {
-    max-width: 70%;
+    width: 70%;
   }
 }
 
 .projectTitle {
-  max-width: 80%;
-  transform: translateX(10%);
+  text-align: center;
+  margin-block-start: 0.25em;
+  margin-block-end: 0.5em;
 }
 
 .projectDescription {
   text-align: left;
+  margin-block-start: 0.5;
+  margin-block-end: 0em;
 }
 
 .pSideBySide {
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-evenly;
-  border-bottom: 1px solid black;
-}
-
-.pSideBySideEnd {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  display: flex;
-  align-items: center;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
 @media screen and (max-width: 1000px) {
   .pSideBySide {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    border-bottom: 1px solid black;
-  }
-
-  .pSideBySideEnd {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    align-items: center;
   }
 }
 
-.pSideBySide:hover {
-  background-color: rgba(200, 200, 200, 0.8);
+.pSideBySideReverse {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
 }
 
-.pSideBySideEnd:hover {
-  background-color: rgba(200, 200, 200, 0.8);
+@media screen and (max-width: 1000px) {
+  .pSideBySideReverse {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.line {
+  width: 1px;
+  height: 250px;
+  background-color: black;
+}
+
+@media screen and (max-width: 1000px) {
+  .line {
+    width: 65%;
+    height: 1px;
+  }
 }

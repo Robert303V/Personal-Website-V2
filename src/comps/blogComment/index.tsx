@@ -1,22 +1,35 @@
 //import styles from './index.module.tsx';
-import CommentType from "../../types/commentType";
+import styles from "./index.module.css";
+
+type CommentType = {
+  user: string;
+  comment: string;
+  date: Date;
+};
 
 function BlogComment(props: CommentType) {
+  const day = props.date.toLocaleString("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "numeric",
+  });
+  const time = props.date.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
+
   return (
-    <div>
-      <p>User: {props.user}</p>
-      <p>Comment: {props.comment}</p>
-      <p>
-        Date:{" "}
-        {props.date.toLocaleString("en-US", {
-          year: "numeric",
-          month: "2-digit",
-          day: "numeric",
-          hour: "numeric",
-          minute: "numeric",
-          hour12: true
-        })}
-      </p>
+    <div className={styles.commentOuterContainer}>
+      <div className={styles.commentInnerContainer}>
+        <p>"{props.comment}"</p>
+        <div className={styles.line} />
+        <p>
+          Written by <br />
+          {props.user}
+          <br /> on {day} at {time}
+        </p>
+      </div>
     </div>
   );
 }

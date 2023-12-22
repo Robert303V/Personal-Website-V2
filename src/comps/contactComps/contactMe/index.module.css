@@ -1,0 +1,41 @@
+.postingSection {
+  border: 1px solid black;
+  border-left: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .postingSection {
+    width: fit-content;
+    align-self: center;
+    border-top: none;
+    border-left: 1px solid black;
+  }
+}
+
+.inputRow {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.textboxTitle {
+  margin-block-end: 0;
+}
+
+.sending {
+  direction: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.warningText {
+  margin-block-start: 0.75em;
+  margin-block-end: 0.5em;
+}
+
+.clearWarningText {
+  margin-block-start: 0.75em;
+  margin-block-end: 0.5em;
+  color: rgba(255, 255, 255, 0);
+  cursor: default;
+}

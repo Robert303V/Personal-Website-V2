@@ -1,17 +1,19 @@
+import CommentType from "./commentType";
+
 type PortfolioType = {
-    title: string;
-    image: string;
-    link: string;
-    linkText: string;
-    desc: string;
-    newtab: boolean;
-    flip: boolean;
-    end: boolean;
-    double: boolean;
-    t2: string;
-    d2: string;
-    portfolioNum: number;
-    slug: string;
+  title: string;
+  image: string;
+  link: string;
+  linkText: string;
+  desc: string;
+  newtab: boolean;
+  flip: boolean;
+  end: boolean;
+  portfolioNum: number;
+  slug: string;
+  comments: CommentType[];
+  content: string[];
+  date: string;
 };
 
 export default PortfolioType;

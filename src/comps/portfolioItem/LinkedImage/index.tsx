@@ -10,25 +10,7 @@ interface LinkedImageProps {
 const LinkedImage = (props: LinkedImageProps) => {
   return (
     <>
-      {props.newtab ? (
-        <Link href={props.link} target="_blank">
-          <Image
-            src={props.image}
-            alt="Project Image"
-            width={300}
-            height={300}
-          />
-        </Link>
-      ) : (
-        <Link href={props.link}>
-          <Image
-            src={props.image}
-            alt="Project Image"
-            width={300}
-            height={300}
-          />
-        </Link>
-      )}
+      <Image src={props.image} alt="Project Image" width={300} height={300} />
     </>
   );
 };

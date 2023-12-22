@@ -12,12 +12,18 @@
   z-index: 1;
   padding: 20px;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   margin: 0px auto 40px auto;
-  max-width: 70%;
+  max-width: 80%;
   transform: translateY(20px);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.contactText {
-  font-family: "Merienda";
+@media screen and (max-width: 1000px) {
+  .contactContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }

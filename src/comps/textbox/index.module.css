@@ -1,23 +1,27 @@
 .textbox1 {
   align-self: center;
   height: 48px;
-  min-height: 48px;
-  max-height: 48px;
+  width: 200px;
+  resize: None;
+}
 
-  width: 25%;
-  min-width: 25%;
-  max-width: 25%;
-  transform: translateY(-10px);
+@media screen and (max-width: 1000px) {
+  .textbox1 {
+    height: 80px;
+    width: 150px;
+  }
 }
 
 .textbox2 {
   align-self: center;
-  height: 92px;
-  min-height: 92px;
-  max-height: 480px;
+  height: 160px;
+  width: 400px;
+  resize: None;
+}
 
-  width: 50%;
-  min-width: 50%;
-  max-width: 50%;
-  transform: translateY(-10px);
+@media screen and (max-width: 1000px) {
+  .textbox2 {
+    height: 224px;
+    width: 300px;
+  }
 }

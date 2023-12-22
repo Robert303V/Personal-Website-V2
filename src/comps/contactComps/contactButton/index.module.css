@@ -1,0 +1,36 @@
+.button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Merienda";
+  align-self: center;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255);
+}
+
+.buttnh {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid black;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  font-family: "Merienda";
+  align-self: center;
+}

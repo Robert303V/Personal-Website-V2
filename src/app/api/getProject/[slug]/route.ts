@@ -1,0 +1,21 @@
+import { NextRequest, NextResponse } from "next/server";
+import connectDB from "../../../../helpers/db";
+import portfolioSchema from "../../../../database/portfolioSchema";
+
+type IParams = {
+  params: {
+    slug: string;
+  };
+};
+
+export async function GET(req: NextRequest, { params }: IParams) {
+  await connectDB();
+  const { slug } = params;
+
+  try {
+    const project = await portfolioSchema.findOne({ slug }).orFail();
+    return NextResponse.json(project);
+  } catch (err) {
+    return NextResponse.json("Blog not found.", { status: 404 });
+  }
+}

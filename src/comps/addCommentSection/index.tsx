@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "../button";
 import Textbox from "../textbox";
 
-import putComment from "../../helpers/putComment";
+import putBlogComment from "../../helpers/putBlogComment";
+import putPortfolioComment from "../../helpers/putPortfolioComment";
 import CommentType from "../../types/commentType";
 
 import styles from "./index.module.css";
@@ -12,7 +13,7 @@ import styles from "./index.module.css";
 function AddCommentSection({
   params,
 }: {
-  params: { slug: string };
+  params: { slug: string; type: string };
 }) {
   const [creating, setCreating] = useState(false);
   const [userText, setUserText] = useState("");
@@ -20,6 +21,7 @@ function AddCommentSection({
   const [noUser, setNoUser] = useState(false);
   const [noComment, setNoComment] = useState(false);
   const [userTooShort, setUserTooShort] = useState(false);
+  const [once, setOnce] = useState(false);
 
   const cancelCreating = () => {
     setCreating(false);
@@ -27,48 +29,27 @@ function AddCommentSection({
     setCommentText("");
   };
 
-  const userTextSetter = (text: string) => {
-    if (text[text.length - 1] != '\n' && text.length < 60) {
-      setUserText(text)
-      if (text.trim() != "") {
-        setNoUser(false);
-      }
-      if (text.trim().length > 1) {
-        setUserTooShort(false);
-      }
-    }
-  }
-
-  const commentTextSetter = (text: string) => {
-    if (text[text.length - 1] != '\n') {
-      setCommentText(text);
-      if (text.trim() != "") {
-        setNoComment(false);
-      }
-    }
-  }
-
   const addComment = async () => {
     let valid = true;
     if (userText.trim() == "" || noUser) {
-      setNoUser(true)
+      setNoUser(true);
       setUserTooShort(false);
       valid = false;
     }
 
     if (commentText.trim() == "" || noComment) {
-      setNoComment(true)
+      setNoComment(true);
       setUserTooShort(false);
       valid = false;
     }
 
     if (valid && userText.trim().length < 2) {
-      setUserTooShort(true)
-      valid = false
+      setUserTooShort(true);
+      valid = false;
     }
 
     if (!valid) {
-      return
+      return;
     }
 
     const createdComment: CommentType = {
@@ -79,13 +60,49 @@ function AddCommentSection({
 
     cancelCreating();
     try {
-      const result = await putComment(params.slug, createdComment).then(() => {
-        window.location.reload();
-      });
-
-      console.log("Comment added successfully:", result);
+      if (params.type == "blog") {
+        const result = await putBlogComment(params.slug, createdComment).then(
+          () => {
+            window.location.reload();
+          }
+        );
+        console.log("Comment added successfully:", result);
+      } else if (params.type == "portfolio") {
+        console.log("lkdjfa;lkjf");
+        const result = await putPortfolioComment(
+          params.slug,
+          createdComment
+        ).then(() => {
+          window.location.reload();
+        });
+        console.log("Comment added successfully:", result);
+      }
     } catch (error) {
       console.error("Error adding comment:", error);
+    }
+  };
+
+  const userTextSetter = (text: string) => {
+    if (text[text.length - 1] != "\n" && text.length < 60) {
+      setUserText(text);
+      if (text.trim() != "") {
+        setNoUser(false);
+      }
+      if (text.trim().length > 1) {
+        setUserTooShort(false);
+      }
+    }
+  };
+
+  const commentTextSetter = (text: string) => {
+    if (text[text.length - 1] != "\n") {
+      setCommentText(text);
+      if (text.trim() != "") {
+        setNoComment(false);
+      }
+    }
+    if (text[text.length - 1] == "\n") {
+      addComment();
     }
   };
 
@@ -107,14 +124,36 @@ function AddCommentSection({
               homepage={false}
             />
           </div>
-          {noUser && noComment ? <p>Please Add Your Name & Write a Comment to Post!</p> : null}
-          {noUser && !noComment ? <p>Please Add Your Name To Post!</p> : null}
-          {noComment && !noUser ? <p>Please Write a Comment To Post!</p> : null}
-          {userTooShort ? <p>Name Must Contain at Least 2 Letters</p> : null}
-          <p>Your Name</p>
+          <div>
+            {noUser && noComment ? (
+              <p className={styles.warningText}>
+                Please Add Your Name & Write a Comment to Post!
+              </p>
+            ) : null}
+            {noUser && !noComment ? (
+              <p className={styles.warningText}>
+                Please Add Your Name To Post!
+              </p>
+            ) : null}
+            {noComment && !noUser ? (
+              <p className={styles.warningText}>
+                Please Write a Comment To Post!
+              </p>
+            ) : null}
+            {userTooShort ? (
+              <p className={styles.warningText}>
+                Name Must Contain at Least 2 Letters
+              </p>
+            ) : null}
+          </div>
+          <p className={styles.textboxTitle}>Your Name</p>
           <Textbox type1={true} text={userText} setText={userTextSetter} />
-          <p>Your Comment</p>
-          <Textbox type1={false} text={commentText} setText={commentTextSetter} />
+          <p className={styles.textboxTitle}>Your Comment</p>
+          <Textbox
+            type1={false}
+            text={commentText}
+            setText={commentTextSetter}
+          />
         </div>
       ) : (
         <>
