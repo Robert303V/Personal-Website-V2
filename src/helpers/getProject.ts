@@ -1,7 +1,7 @@
 async function GetProject(slug: string) {
   try {
     const response = await fetch(
-      `http://localhost:3000/api/getProject/${slug}`,
+      `https://robert303v.vercel.app/api/getProject/${slug}`,
       {
         cache: "no-store",
       }

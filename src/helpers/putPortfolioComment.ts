@@ -3,7 +3,7 @@ import CommentType from "../types/commentType";
 async function addCommentToPortfolioAPI(slug: string, comment: CommentType) {
   try {
     const response = await fetch(
-      `http://localhost:3000/api/putPortfolioComment/${slug}`,
+      `https://robert303v.vercel.app/api/putPortfolioComment/${slug}`,
       {
         method: "PUT",
         headers: {

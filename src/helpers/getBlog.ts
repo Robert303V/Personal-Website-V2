@@ -1,6 +1,6 @@
 async function GetBlog(slug: string) {
   try {
-    const response = await fetch(`http://localhost:3000/api/getPost/${slug}`, {
+    const response = await fetch(`https://robert303v.vercel.app/api/getPost/${slug}`, {
       cache: "no-store",
     });
 

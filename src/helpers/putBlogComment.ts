@@ -3,7 +3,7 @@ import CommentType from "../types/commentType";
 async function addCommentToBlogAPI(slug: string, comment: CommentType) {
   try {
     const response = await fetch(
-      `http://localhost:3000/api/putBlogComment/${slug}`,
+      `https://robert303v.vercel.app/api/putBlogComment/${slug}`,
       {
         method: "PUT",
         headers: {
