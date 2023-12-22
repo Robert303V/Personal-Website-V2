@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import EndFiller from "../../comps/endFiller";
 
-export default function EatAndGreet() {
+export default function Eat() {
   return (
     <>
       <div className={styles.eatAndGreetContainer}>
