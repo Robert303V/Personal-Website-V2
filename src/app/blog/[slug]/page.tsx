@@ -49,7 +49,6 @@ async function BlogPost({ params }: { params: { slug: string } }) {
               date={dateString}
               image={blogPost.image}
               flip={blogPost.blogNum % 2 == 0 ? true : false}
-              end={true}
             />
             {blogPost.content.map((contentStr: string) => (
               <div className={styles.blogPostMessageOuter} key={contentStr}>
