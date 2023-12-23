@@ -9,7 +9,6 @@ interface BlogPreviewProps {
   date: string;
   image: string;
   flip: boolean;
-  end: boolean;
 }
 
 const BlogPreview = (props: BlogPreviewProps) => {

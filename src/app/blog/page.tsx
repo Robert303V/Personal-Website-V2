@@ -37,37 +37,38 @@ export default async function Blog() {
           <div className={styles.blogPostsOuter}>
             <div className={styles.blogPosts} id="blog-posts">
               {blogData ? (
-                blogData.map((blogPostObj) => (
-                  <div className={styles.linkOuter} key={blogPostObj.blogNum}>
-                    <Link
-                      href={"/blog/" + blogPostObj.slug}
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      <div
-                        className={styles.linkToIndividual}
-                        style={{
-                          borderBottom:
-                            blogPostObj.blogNum != 1
-                              ? "1px solid black"
-                              : "none",
-                        }}
+                blogData.map((blogPostObj) =>
+                  blogPostObj.image != "amalfi" ? (
+                    <div className={styles.linkOuter} key={blogPostObj.blogNum}>
+                      <Link
+                        href={"/blog/" + blogPostObj.slug}
+                        style={{ textDecoration: "none", color: "inherit" }}
                       >
-                        <BlogPreview
-                          title={blogPostObj.title}
-                          date={blogPostObj.date.toLocaleDateString("en-US", {
-                            weekday: "long",
-                            year: "numeric",
-                            month: "long",
-                            day: "numeric",
-                          })}
-                          image={blogPostObj.image}
-                          flip={blogPostObj.blogNum % 2 == 0 ? true : false}
-                          end={blogPostObj.blogNum != 1 ? false : true}
-                        />
-                      </div>
-                    </Link>
-                  </div>
-                ))
+                        <div
+                          className={styles.linkToIndividual}
+                          style={{
+                            borderBottom:
+                              blogPostObj.blogNum > 2
+                                ? "1px solid black"
+                                : "none",
+                          }}
+                        >
+                          <BlogPreview
+                            title={blogPostObj.title}
+                            date={blogPostObj.date.toLocaleDateString("en-US", {
+                              weekday: "long",
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
+                            image={blogPostObj.image}
+                            flip={blogPostObj.blogNum % 2 == 0 ? true : false}
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                  ) : null
+                )
               ) : (
                 <p className="blogPostMessage">
                   There was an error loading the blog posts. :(
