@@ -75,9 +75,9 @@ const Row = ({ type }: RowProps) => {
     icon = <UilGithub size="30" color="#000000" />;
     button = (
       <Button
-        text="R303Vermeulen"
+        text="Robert303V"
         onPress={() =>
-          window.open("https://www.github.com/R303Vermeulen", "_blank")
+          window.open("https://www.github.com/Robert303V", "_blank")
         }
         type1={true}
       />
@@ -86,7 +86,7 @@ const Row = ({ type }: RowProps) => {
       <Button
         text="Copy Link"
         onPress={() =>
-          navigator.clipboard.writeText("https://www.github.com/R303Vermeulen")
+          navigator.clipboard.writeText("https://www.github.com/Robert303V")
         }
         type1={false}
       />
