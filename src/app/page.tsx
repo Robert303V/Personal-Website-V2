@@ -62,7 +62,8 @@ export default function Home() {
                 components w/ 100% test coverage. I've also utilized this
                 library to reconstruct and modernize a data portal for the
                 company, and developed a robust API using Spring Boot to deliver
-                the results to the data portal. After graduating this
+                the results to the data portal. To learn more about my work
+                experience, please check out my resume!
               </p>
             </div>
             <div className={styles.innerSBS}>
