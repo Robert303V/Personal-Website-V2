@@ -49,21 +49,20 @@ export default function Home() {
             <div className={styles.innerSBS}>
               <p className={styles.aboutText}>
                 My Name is Robert, I'm a Computer Science major with a minor in
-                Mathematics at Cal Poly San Luis Obispo, and a developer for the
-                Hack4Impact club. I love technology because of it's ability to
-                improve people's lives at an easily scalable level, and have a
-                strong desire to use my career in software to assist those who
-                need it most.
+                Mathematics at Cal Poly San Luis Obispo, and Computer Science
+                Intern for the California ISO. I graduate this December, and
+                will be looking for full time roles in software engineering. I
+                love technology because of it's ability to improve people's
+                lives at an easily scalable level, and have a strong desire to
+                use my career in software to assist those who need it most.
                 <br />
                 <br />
-                This past summer, I worked as a Software Engineering Intern for
-                Firstleaf, where I got hands on experience as a full-stack
-                developer working with ReactJS and Ruby on Rails. I am set to
-                graduate in December of 2024, and so this year I am looking for
-                my second summer internship. Ideally I'd like to be focused on
-                backend software engineering, but I'm open to any opportunities
-                that develop my technical skills and push me to learn something
-                new.
+                This fall and the past summer, I've been working with the
+                California ISO to develop an internal library of dynamic
+                components w/ 100% test coverage. I've also utilized this
+                library to reconstruct and modernize a data portal for the
+                company, and developed a robust API using Spring Boot to deliver
+                the results to the data portal. After graduating this
               </p>
             </div>
             <div className={styles.innerSBS}>
